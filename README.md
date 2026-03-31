@@ -42,8 +42,6 @@ sudo mn --topo single,3 --controller remote
 ### 3. Setup Servers (inside Mininet)
 
 ```bash
-h1 pkill -f http.server
-h1 python3 -m http.server 8080 &
 h1 iperf -s &
 ```
 
@@ -60,14 +58,14 @@ h2 iperf -c h1
 ### 🔹 Scenario 2: High Priority Traffic (HTTP)
 
 ```bash
-h3 wget -O- http://10.0.0.1:8080
+h3 wget -O- http://10.0.0.1
 ```
 
 ### 🔹 Combined Test (QoS Demo)
 
 ```bash
 h2 iperf -c h1 &
-h3 wget -O- http://10.0.0.1:8080
+h3 wget -O- http://10.0.0.1
 ```
 
 ---
